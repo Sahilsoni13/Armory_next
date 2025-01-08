@@ -5,6 +5,7 @@ import Ourclients from "@/componnent/Home/OurClients";
 import Global from "@/componnent/Home/Global";
 import Strategy from "@/componnent/Home/Strategy";
 import SwiperSection from "@/componnent/Home/SwiperSection";
+import MapSection from "@/componnent/Home/MapSection";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Global/>
       <Strategy/>
       <SwiperSection/>
+      <MapSection/>
     </>
   );
 }
