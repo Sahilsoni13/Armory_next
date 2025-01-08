@@ -2,20 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities{
+  body{
+    @apply m-0 p-0 box-border bg-black pt-[88px];
   }
-}
+  html{
+    @apply scroll-smooth scroll-pt-[110px]
+  }
+  @font-face {
+    font-family: 'gothic';
+    src: url('/fonts/BankGothicLightRegular.otf');
+    font-weight: normal;
+    font-style: normal;
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @font-face {
+    font-family: 'gothicMdbt';
+    src: url('/fonts/BankGothicMdBT.ttf');
+  }
+
+  @font-face {
+    font-family: 'gothiclight';
+    src: url('/fonts/BankGothicLightRegular.otf');
+  }
+
+  @font-face {
+    font-family: 'inter';
+    src: url('/fonts/Inter_28pt-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* *{
+    @apply m-0 p-0 box-border;
+  } */
+  .container {
+    @apply max-w-[1240px] w-full mx-auto px-5
+  }
+  .HeaderNavAnimation {
+    @apply relative after:content-[''] after:absolute after:bottom-0 after:h-[1px] after:bg-white after:w-0 after:left-[50%] hover:after:w-full after:transition-all hover:after:left-0 after:duration-200;
+  }
+  .hovereffect {
+    @apply shadow-[-5px_1px_275px_0px_rgba(41, 114, 215, 0.68)];
+  }
+
+  .text_shadow {
+    /* text-shadow: 0px 0px 20px #2972D7; */
+    text-shadow: 0px 0px 10px #2972D7;
+
+  }
+
+  @keyframes zoom-in-zoom-out {
+    0% {
+      transform: scale(1, 1);
+    }
+
+    50% {
+      transform: scale(1.5, 1.5);
+    }
+
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+
+  .footerIconsAnimation {
+    @apply transition-all duration-300 hover:translate-y-[-5px] hover:scale-[1.1] hover:rotate-6;
+  }
+
+  .custom-glow{
+    filter: drop-shadow(0px 0px 20px  #2972D7);
+    text-shadow: 0 0 13px #2972D7;
+  }
+
+  .custom-glow-icons {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .custom-glow-icons:hover {
+    filter: drop-shadow(0 0 10px #2972D7);
+  }
+  
+ 
+  
+  .shadow-custom-glow:hover {
+    filter: drop-shadow(0 0 8px #2972D7);
+  }
 }
