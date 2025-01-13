@@ -46,13 +46,17 @@ export default {
       },
       
       animation: {
-        'spin-clockwise': 'spinClockwise 8s linear infinite',
-        'spin-anticlockwise': 'spinAnticlockwise 12s linear infinite',
-        'clockwise': "rotateClockwise 10s linear infinite",
-        'counterClockwise': "rotateCounterClockwise 10s linear infinite",
+        'spin-clockwise': 'spinClockwise 20s linear infinite',
+        'spin-anticlockwise': 'spinAnticlockwise 20s linear infinite',
+        'clockwise': "rotateClockwise 20s linear infinite",
+        'counterClockwise': "rotateCounterClockwise 20s linear infinite",
         'spin-sclaeUp': 'spinScaleUp 2s linear infinite alternate',
         'spin-scaleDown': 'spinScaleDown 2s linear infinite alternate',
         'flicker': 'flicker 2s infinite',
+        flicker1: 'flicker1 1s infinite',
+        flicker2: 'flicker2 1.3s infinite',
+        flicker3: 'flicker3 1.5s infinite',
+        fadeIn: 'fadeIn 3s ease-in-out',
       },
       keyframes: {
         spinClockwise: {
@@ -89,6 +93,22 @@ export default {
           '20%, 24%, 55%': {
             opacity: "0.4",
           },
+        },
+        flicker1: {
+          '0%, 100%': { transform: 'scaleY(1)', opacity: '1' },
+          '50%': { transform: 'scaleY(1.2)', opacity: '0.7' },
+        },
+        flicker2: {
+          '0%, 100%': { transform: 'scaleY(1)', opacity: '1' },
+          '50%': { transform: 'scaleY(1.3)', opacity: '0.8' },
+        },
+        flicker3: {
+          '0%, 100%': { transform: 'scaleY(1)', opacity: '1' },
+          '50%': { transform: 'scaleY(1.1)', opacity: '0.6' },
+        },
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(-20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
       }
     },
