@@ -75,7 +75,7 @@ const Calendar = () => {
                   <div key={index} className="flex items-start justify-between max-h-[120px] overflow-y-scroll custom-scrollbar pt-2">
                     <span className='text-sm capitalize '>{task}</span>
                     <button
-                      className="text-red-500 p-1 shadow-md rounded-md"
+                      className="text-red-500 p-1 shadow-md rounded-full max-w-5 flex items-center justify-center"
                       onClick={(e) => {
                         e.stopPropagation();
                         handleRemoveTask(format(day, 'yyyy-MM-dd'), index);

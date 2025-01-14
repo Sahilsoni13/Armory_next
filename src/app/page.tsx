@@ -8,20 +8,22 @@ import SwiperSection from "@/componnent/Home/SwiperSection";
 import MapSection from "@/componnent/Home/MapSection";
 import TodoCalender from "@/componnent/Home/TodoCalender";
 import ImageCompressor from "@/componnent/CompressDownloader";
+import ImageShare from "@/componnent/Share";
 
 export default function Home() {
   return (
     <>
-      <Banner/>
+      {/* <Banner/>
       <TheMission/>
       <Deffense/>
       <Ourclients/>
       <Global/>
       <Strategy/>
-      <SwiperSection/>
+      <SwiperSection/> */}
       <MapSection/>
       <TodoCalender/>
       <ImageCompressor/>
+      <ImageShare/>
     </>
   );
 }

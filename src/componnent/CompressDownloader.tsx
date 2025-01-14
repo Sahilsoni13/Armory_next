@@ -11,6 +11,7 @@ interface CompressedImage {
 
 const ImageCompressor: React.FC = () => {
     const [compressedImages, setCompressedImages] = useState<CompressedImage[]>([]);
+    const [quality, setQuality] = useState<number>(70); // Default quality set to 70%
 
     const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const files = event.target.files;
@@ -62,7 +63,10 @@ const ImageCompressor: React.FC = () => {
                     canvas.height = height;
                     ctx.drawImage(img, 0, 0, width, height);
 
-                    // Convert to the original file format
+                    // Check if the file is JPEG or WEBP, and apply quality for compression
+                    const isJPEGorWebp = file.type === 'image/jpeg' || file.type === 'image/webp';
+
+                    // Set the quality if it's JPEG or WEBP, otherwise just return as is
                     canvas.toBlob(
                         (blob) => {
                             if (blob) {
@@ -72,7 +76,7 @@ const ImageCompressor: React.FC = () => {
                             }
                         },
                         file.type, // Keep the original file format
-                        0.7 // Apply compression for JPEG and WEBP formats
+                        isJPEGorWebp ? quality / 100 : undefined // Apply quality for JPEG and WEBP
                     );
                 };
             };
@@ -119,6 +123,21 @@ const ImageCompressor: React.FC = () => {
                     multiple
                     className="border border-gray-300 rounded-lg px-4 py-2 mb-6 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
+
+                {/* Quality Range Slider */}
+                <div className="mb-4">
+                    <label htmlFor="quality" className="text-gray-700 font-semibold">Select Image Quality: {quality}%</label>
+                    <input
+                        type="range"
+                        id="quality"
+                        min="0"
+                        max="100"
+                        value={quality}
+                        onChange={(e) => setQuality(Number(e.target.value))}
+                        className="w-full mt-2"
+                    />
+                </div>
+
                 {compressedImages.length > 0 && (
                     <div className="mt-6 space-y-4">
                         {/* Swiper Slider for Image Preview */}
@@ -151,4 +170,5 @@ const ImageCompressor: React.FC = () => {
 };
 
 export default ImageCompressor;
+
 

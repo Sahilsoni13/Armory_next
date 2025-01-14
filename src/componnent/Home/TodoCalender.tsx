@@ -8,7 +8,7 @@ const TodoCalender = () => {
   return (
     <>
       <section className='bg-white py-20'>
-        {/* <Calendar/> */}
+        <Calendar/>
         <div className="min-h-screen flex flex-col items-center justify-center">
           <h1 className="text-4xl font-bold mb-6">Compressed Images</h1>
           <CompressedImage height={1000} width={500} imageUrl={image2} />
